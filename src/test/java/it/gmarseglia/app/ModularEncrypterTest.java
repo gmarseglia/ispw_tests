@@ -21,7 +21,7 @@ public class ModularEncrypterTest {
     }
 
     @Test(expected = RuntimeException.class)
-    public void RuntimeTest() {
+    public void RuntimeGreaterThanModTest() {
         int mod = 101;
         int plain = 102;
         int key = 1234;
@@ -30,4 +30,16 @@ public class ModularEncrypterTest {
 
         me.Encrypt(plain, key);
     }
+
+    @Test(expected = RuntimeException.class)
+    public void RuntimeLessThan0Test() {
+        int mod = 101;
+        int plain = -1;
+        int key = 1234;
+
+        ModularEncrypter me = new ModularEncrypter(mod);
+
+        me.Encrypt(plain, key);
+    }
+    
 }
