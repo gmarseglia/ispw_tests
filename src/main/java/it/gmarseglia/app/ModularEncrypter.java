@@ -11,6 +11,8 @@ public class ModularEncrypter {
     public int Encrypt(int plain, int key) {
         if (plain >= this.mod) {
             throw new RuntimeException("plain has to be lower than mod");
+        } else if (plain < 0) {
+            throw new RuntimeException("plain has to be greater or equal than 0");
         }
         return (plain + key) % this.mod;
     }
