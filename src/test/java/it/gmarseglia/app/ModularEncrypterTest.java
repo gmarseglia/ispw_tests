@@ -19,4 +19,15 @@ public class ModularEncrypterTest {
 
         assertEquals(plain, decipher);
     }
+
+    @Test(expected = RuntimeException.class)
+    public void RuntimeTest() {
+        int mod = 101;
+        int plain = 102;
+        int key = 1234;
+
+        ModularEncrypter me = new ModularEncrypter(mod);
+
+        me.Encrypt(plain, key);
+    }
 }
